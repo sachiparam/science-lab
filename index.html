@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Lab - Inspiring Young Minds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d2d2d;
+            background-color: #fef9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffc8dd 0%, #ffafcc 50%, #bde0fe 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(255, 175, 204, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff006e, #ffafcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff006e, #ffafcc);
+            color: white;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.4);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #ff006e, #ffafcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(255, 175, 204, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 175, 204, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 175, 204, 0.25);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ff006e;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .about-section {
+            background: linear-gradient(135deg, #ffc8dd15, #ffafcc15);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin: 5rem 2rem;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 175, 204, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: scale(1.05);
+        }
+
+        .activity-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card h3 {
+            color: #ff006e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #ff006e, #ffafcc);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-top: 5rem;
+            border-radius: 30px;
+        }
+
+        .contact-section h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Science Lab</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Inspiring Young Minds</h1>
+        <p>We bring hands-on STEM education to libraries and afterschool clubs, teaching engineering, science, and physics through engaging activities that spark curiosity and creativity.</p>
+        <a href="#contact" class="cta-button">Work With Us</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">What We Do</h2>
+        <div class="cards">
+            <div class="card">
+                <span class="card-icon">✨</span>
+                <h3>Hands-On Learning</h3>
+                <p>Every session is interactive and engaging, allowing students to explore STEM concepts through experiments and projects they can touch, build, and experiment with.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🎯</span>
+                <h3>Community Impact</h3>
+                <p>We partner with libraries and afterschool programs to make quality STEM education accessible to all students in our community, regardless of background.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🚀</span>
+                <h3>Inspiring Innovation</h3>
+                <p>Our activities encourage creative problem-solving and critical thinking, helping students develop skills they'll use throughout their lives.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-section">
+        <h2 class="section-title">Our Mission</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+            Science Lab is dedicated to making STEM education exciting, accessible, and engaging for young learners. We believe that every child deserves the opportunity to discover the wonders of science, engineering, and physics through hands-on exploration.
+        </p>
+    </div>
+
+    <section id="activities">
+        <h2 class="section-title">What We Teach</h2>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-icon">⚙️</div>
+                <h3>Engineering</h3>
+                <p>From building bridges to designing simple machines, students learn engineering principles through creative construction challenges and problem-solving activities.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🔬</div>
+                <h3>Science</h3>
+                <p>Exciting chemistry experiments, biology explorations, and hands-on activities that teach the scientific method and develop curiosity about the natural world.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🌟</div>
+                <h3>Physics</h3>
+                <p>Interactive demonstrations exploring motion, energy, gravity, and forces that help students understand the fundamental laws governing our universe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Let's Connect</h2>
+        <p>Interested in bringing Science Lab to your library or afterschool program?</p>
+        <div class="contact-info">
+            <div class="contact-item">pinkcooudspoundation.</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Science Lab. Inspiring curiosity, one experiment at a time.</p>
+    </footer>
+</body>
+</html>
